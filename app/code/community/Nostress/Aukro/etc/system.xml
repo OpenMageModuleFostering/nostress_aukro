@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<payment>
+            <groups>
+                <aukro translate="label" module="aukro">
+                    <label>Aukro</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>103</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>                        
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>                         
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+						 </order_status>                        
+                         <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                        <allowspecific translate="label">
+                            <label>Payment from applicable countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>51</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+                    </fields>
+                </aukro>
+            </groups>
+        </payment>
+		<carriers>
+            <groups>
+                <aukro translate="label" module="aukro">
+                    <label>Aukro</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <name translate="label">
+                            <label>Method Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>                       
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>                                                
+                        <showmethod translate="label">
+                            <label>Show Method if Not Applicable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>92</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </showmethod>                       
+                    </fields>       
+                </aukro>                
+            </groups>
+        </carriers>
+		<aukro translate="label" module="aukro">
+			<label>Aukro Connector</label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>30</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<activation translate="label">
+					<label>Activation</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<license_key translate="label">
+							<label>License Key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</license_key>
+					</fields>
+				</activation>		
+				<connection_settings translate="label">
+					<label>Connection settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<username translate="label">
+							<label>Username</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</username>
+						<password translate="label">
+							<label>Password</label>
+							<frontend_type>password</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</password>
+						<webapi_key translate="label">
+							<label>WebAPI key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</webapi_key>
+						<city translate="label">
+							<label>City</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</city>
+						
+						<postcode translate="label">
+							<label>Zip</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</postcode>
+						<county translate="label comment">
+							<label>Region</label>
+							<frontend_type>select</frontend_type>
+							<source_model>aukro/adminhtml_system_config_source_region</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Choose region from list</comment>
+						</county>						
+						<country translate="label comment">
+							<label>Country</label>
+							<frontend_type>select</frontend_type>
+							<source_model>aukro/adminhtml_system_config_source_country</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Enter the country from which you are selling.</comment>
+						</country>
+					</fields>
+				</connection_settings>
+				<display_settings translate="label">
+					<label>Display settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<offer_label translate="label comment">
+							<label>Offer label</label>
+							<comment>Text will be added after each product description.</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</offer_label>
+						<display_duration translate="label comment">
+							<label>Display duration</label>
+							<comment>Days count of displaying a product.</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_duration</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</display_duration>
+						<base_unit translate="label">
+							<label>Base unit</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_baseunit</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</base_unit>
+						<auto_display translate="label comment">
+							<label>Autodisplay after offer ends</label>
+							<comment>The ability to automatically re-expose the subject</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_autodisplay</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</auto_display>
+						<new_used translate="label">
+							<label>Product state</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_productnewused</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</new_used>
+					</fields>
+				</display_settings>
+				<shipping_and_payment translate="label">
+					<label>Shipping and payment</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>0</show_in_website>
+					<show_in_store></show_in_store>
+					<fields>
+						<payment_type translate="label">
+							<label>Payment type</label>
+							<frontend_type>multiselect</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_paymenttype</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</payment_type>
+						
+						<wire_transfer translate="label comment">
+							<label>Payment type for wire transfer</label>
+							<comment>Choose magento payment type for aukro wire stransfer payment type.</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_paymentmethods</source_model>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</wire_transfer >
+						
+						<collect_on_delivery translate="label comment">
+							<label>Payment type for collect on delivery</label>
+							<comment>Choose magento payment type for aukro collect on delivery payment type.</comment>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_paymentmethods</source_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</collect_on_delivery>
+						
+						<shipping_pricing translate="label">
+							<label>Shipping pricing</label>
+							<frontend_model>aukro/adminhtml_system_config_form_field_shipping</frontend_model>
+							<backend_model>aukro/adminhtml_system_config_form_shipping</backend_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</shipping_pricing>
+						<freeshipping translate="label">
+							<label>Freeshipping</label>
+							<frontend_type>multiselect</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_freeshipping</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</freeshipping>
+						<shipping_payer translate="label comment">
+							<label>Shipping payer</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_shippingpayer</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Choose who pays for the transport of goods.</comment>
+						</shipping_payer>
+						<shipping_conditions translate="label comment">
+							<label>Shipping conditions</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>aukro/adminhtml_system_config_source_shippingconditions</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>You can specify detailed conditions of carriage of goods, including the price of postage etc.</comment>
+						</shipping_conditions>
+						<additional_info translate="label comment">
+							<label>Shipping and payment informations</label>							
+							<comment>Active if 'Others' is checked. You can fill an informations about shipping and payment (eg. bank account etc.).</comment>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</additional_info>						
+						<deluxe_options translate="label comment">
+							<label>Premium options</label>
+							<comment>If you want your subject 'visible' and sell more effectively, we recommend you choose one of the options premium. Hold keyboard CTRL button to deativate all options.</comment>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>aukro/adminhtml_system_config_source_deluxeoptions</source_model>
+							<sort_order>95</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</deluxe_options>						
+					</fields>
+				</shipping_and_payment>
+			</groups>
+		</aukro>
+	</sections>
+</config>

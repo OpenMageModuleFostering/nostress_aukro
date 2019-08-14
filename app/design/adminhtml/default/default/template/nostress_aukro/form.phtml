@@ -1,0 +1,7 @@
+<div class="entry-edit">
+    <?php echo $this->getFormHtml();?>
+</div>
+<?php echo $this->getChildHtml('form_after');?>
+<script type="text/javascript">
+reloadAukroAttributes(<?php echo $this->getAukroCategory() ?>,'<?php echo $this->getUrl('aukro/adminhtml_map_categories/getAukroCategoryAttributes') ?>','<?php echo $this->getAukroAttributes() ?>');
+</script>

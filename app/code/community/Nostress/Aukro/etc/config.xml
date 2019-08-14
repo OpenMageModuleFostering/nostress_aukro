@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Nostress_Aukro>
+			<version>1.0.0</version>
+		</Nostress_Aukro>
+	</modules>
+
+	<admin>
+		<routers>
+			<aukro>
+				<use>admin</use>
+				<args>
+					<module>Nostress_Aukro</module>
+					<frontName>aukro</frontName>
+				</args>
+			</aukro>
+		</routers>
+	</admin>
+
+	<adminhtml>
+		<menu>
+			<sales translate="title" module="adminhtml">
+				<children>
+					<aukro translate="title" module="aukro">
+						<title>Aukro Connector</title>
+						<children>
+							<orders translate="title" module="aukro">
+								<title>Aukro Orders</title>
+								<action>aukro/adminhtml_orders</action>
+							</orders>
+							<displayed_products translate="title" module="aukro">
+								<title>Exposed Products</title>
+								<action>aukro/adminhtml_products_display/displayed</action>
+							</displayed_products>
+							<display translate="title" module="aukro">
+								<title>Exposing of Products</title>
+								<action>aukro/adminhtml_products_display/index</action>
+							</display>							
+							<mapped_categories translate="title" module="aukro">
+								<title>Mapped Categories</title>
+								<action>aukro/adminhtml_map_categories</action>
+							</mapped_categories>
+							<mapped_attributes translate="title" module="aukro">
+								<title>Mapped Attributes</title>
+								<action>aukro/adminhtml_map_attributes</action>
+							</mapped_attributes>
+							<configuration translate="title" module="aukro">
+								<title>Configuration</title>
+								<action>adminhtml/system_config/edit/section/aukro</action>
+							</configuration>
+							<!-- 
+							<log translate="title" module="aukro">
+								<title>Log</title>
+								<action>aukro/adminhtml_log</action>
+							</log>
+							 -->
+						</children>
+					</aukro>
+				</children>
+			</sales>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<sales>
+							<children>
+								<aukro translate="title" module="aukro">
+									<title>Aukro Connector</title>
+			                  		<children>		
+			                  			<orders translate="title" module="aukro">
+											<title>Aukro Orders</title>
+										</orders>
+										<displayed_products translate="title" module="aukro">
+											<title>Exposed Products</title>
+										</displayed_products>
+										<display translate="title" module="aukro">
+											<title>Exposing of Products</title>
+										</display>							
+										<mapped_categories translate="title" module="aukro">
+											<title>Mapped Categories</title>
+										</mapped_categories>
+										<mapped_attributes translate="title" module="aukro">
+											<title>Mapped Attributes</title>
+										</mapped_attributes>
+										<configuration translate="title" module="aukro">
+											<title>Configuration</title>
+										</configuration>								     
+									</children>
+								</aukro>          		
+							</children>
+						</sales>
+						<system>
+							<children>
+								<config>
+									<children>
+										<aukro translate="title" module="aukro">
+											<title>Nostress Aukro</title>
+											<sort_order>61</sort_order>
+										</aukro>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<aukro>
+					<file>nostress_aukro.xml</file>
+				</aukro>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Nostress_Aukro>
+					<files>
+						<default>Nostress_Aukro.csv</default>
+					</files>
+				</Nostress_Aukro>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<global>
+    	<events>
+            <catalog_category_save_commit_after>
+                <observers>
+                    <aukro>
+                        <type>singleton</type>
+                        <class>aukro/observer</class>
+                        <method>saveCategoryAukroMapping</method>
+                    </aukro>                    
+                </observers>                
+            </catalog_category_save_commit_after>
+        </events>
+		<blocks>
+			<aukro>
+				<class>Nostress_Aukro_Block</class>
+			</aukro>
+			<adminhtml>
+				<rewrite>
+					<catalog_category_tabs>Nostress_Aukro_Block_Adminhtml_Catalog_Category_Tabs</catalog_category_tabs>
+					<sales_order_grid>Nostress_Aukro_Block_Adminhtml_Sales_Order_Grid</sales_order_grid>
+				</rewrite>
+			</adminhtml>
+		</blocks>
+		<helpers>
+			<aukro>
+				<class>Nostress_Aukro_Helper</class>
+			</aukro>
+		</helpers>
+		<resources>
+			<aukro_setup>
+				<setup>
+					<module>Nostress_Aukro</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</aukro_setup>
+			<aukro_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</aukro_write>
+			<aukro_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</aukro_read>
+		</resources>
+		<models>
+			<aukro>
+				<class>Nostress_Aukro_Model</class>
+   				<resourceModel>aukro_mysql4</resourceModel>
+			</aukro>
+            <aukro_mysql4>
+                <class>Nostress_Aukro_Model_Mysql4</class>
+                <entities>
+                    <mapping_category>
+                        <table>nostress_aukro_category_mapping</table>
+                    </mapping_category>
+                    <mapping_attribute>
+                        <table>nostress_aukro_attribute_mapping</table>
+                    </mapping_attribute>
+                    <shipping_pricing>
+                        <table>nostress_aukro_shipping_pricing</table>
+                    </shipping_pricing>
+                    <cache_categorypath>
+                    	<table>nostress_aukro_cache_categorypath</table>
+                    </cache_categorypath>
+                    <cache_categories>
+                    	<table>nostress_aukro_cache_categories</table>
+                    </cache_categories>
+                    <cache_superattributes>
+                    	<table>nostress_aukro_cache_superattributes</table>
+                    </cache_superattributes>
+                    <cache_mediagallery>
+                    	<table>nostress_aukro_cache_mediagallery</table>
+                    </cache_mediagallery>
+                    <cache_tax>
+                    	<table>nostress_aukro_cache_tax</table>
+                    </cache_tax>
+                    <product>
+                    	<table>nostress_aukro_product</table>
+                    </product>  
+                </entities>
+            </aukro_mysql4>	
+		</models>
+	</global>
+	
+	<default>
+	 	<carriers>
+            <aukro>
+            	<active>1</active>
+                <model>aukro/shipping_carrier_aukro</model>
+                <name>-</name>
+                <title>Aukro</title>
+    		</aukro>
+		</carriers>
+		<aukro>
+			<shipping_and_payment>
+				<collect_on_delivery>checkmo</collect_on_delivery>
+				<shipping_payer>1</shipping_payer><!-- buyer -->
+			</shipping_and_payment>
+			<general>			
+				<log_events>1</log_events>
+				<log_limit>200</log_limit>
+				<log_rest>50</log_rest>
+				<filepath>/media/aukro/</filepath>
+				<koongo_api_url_secure>http://www.koongo.com/api/1.0/koongo/</koongo_api_url_secure>
+				<koongo_api_url_unsecure>http://www.koongo.com/api/1.0/koongo/</koongo_api_url_unsecure>					
+			</general>
+			<help>
+				<license_conditions>https://docs.koongo.com/display/AukroConnector/License+Conditions</license_conditions>
+			</help>			
+		</aukro>
+		<payment>
+            <aukro>
+                <active>1</active> 
+				<model>aukro/payment</model>
+				<title>Aukro</title>                 
+				<allowspecific>0</allowspecific>                  
+            </aukro>
+        </payment>
+	</default>
+		
+	<crontab>
+        <jobs>
+            <refresh_orders>
+                <schedule><cron_expr>0 * * * *</cron_expr></schedule><!-- kazdou hodinu v 0 minut se zkontroluji nove objednavky -->
+                <run><model>aukro/observer::refreshOrders</model></run>
+            </refresh_orders>
+            <refresh_products>
+                <schedule><cron_expr>10 * * * *</cron_expr></schedule><!-- kazdou hodinu v 10 minut se zkontroluji aukce. Po objednavce muze skoncit vystaveni -->
+                <run><model>aukro/observer::refreshAuctions</model></run>
+            </refresh_products>
+        </jobs>
+    </crontab>
+</config> 

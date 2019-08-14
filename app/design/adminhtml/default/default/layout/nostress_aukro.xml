@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<aukro_adminhtml_default>
+		<reference name="head">
+            <action method="addItem"><type>skin_css</type><file>aukro.css</file></action>
+		</reference>
+	</aukro_adminhtml_default>
+	
+	<aukro_adminhtml_activation_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_activation" name="aukro_activation" template="nostress_aukro/activation.phtml" />				
+		</reference>
+	</aukro_adminhtml_activation_index>
+	
+	<aukro_adminhtml_orders_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_orders" name="orders" template="nostress_aukro/grid/container.phtml"/>
+		</reference>
+	</aukro_adminhtml_orders_index>
+	
+	<aukro_adminhtml_products_display_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_products_display" name="products_display" template="nostress_aukro/grid/container.phtml"/>
+		</reference>
+	</aukro_adminhtml_products_display_index>
+	
+	<aukro_adminhtml_products_display_displayed>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_products_displayed" name="products_displayed" template="nostress_aukro/grid/container.phtml"/>
+		</reference>
+	</aukro_adminhtml_products_display_displayed>
+	
+	<aukro_adminhtml_map_categories_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_map_categories" name="map_categories" template="nostress_aukro/grid/container.phtml" />
+		</reference>
+	</aukro_adminhtml_map_categories_index>
+	<aukro_adminhtml_map_attributes_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_map_attributes" name="map_attributes" />
+		</reference>
+	</aukro_adminhtml_map_attributes_index>
+	<aukro_adminhtml_log_index>
+		<update handle="aukro_adminhtml_default" />
+		<reference name="content">
+			<block type="aukro/adminhtml_log" name="log" template="nostress_aukro/grid/container.phtml" />
+		</reference>
+	</aukro_adminhtml_log_index>
+	
+    <adminhtml_catalog_category_edit>
+    	<reference name="head">
+            <action method="addItem"><type>js</type><name>nostress/aukro/aukro.js</name></action>
+		</reference>
+    </adminhtml_catalog_category_edit>
+</layout>

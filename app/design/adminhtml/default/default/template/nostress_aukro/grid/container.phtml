@@ -1,0 +1,80 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * @category   Nostress
+ * @package    Nostress_Aukro
+ * @copyright Copyright (c) 2012 NoStress Commerce (http://www.nostresscommerce.cz)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Adminhtml_Block_Widget_Grid_Container
+ */
+
+?>
+
+<?php 	if(Mage::helper('aukro/version')->isLicenseEmpty()): ?>
+  <div id="overlay" class="overlay"></div>
+  <div id="overlay-data" class="overlay-data">
+    <div class="container">
+      <div class="box">
+        <div class="koongo">
+          <div class="logo"></div>
+          <div class="line"></div>
+          <div class="btn-set">
+            <div class="l">
+            	<?php
+            	   $title = $this->__('Activate Aukro Connector');
+            	   $url = Mage::helper("adminhtml")->getUrl( 'aukro/adminhtml_activation/index');
+            	?>
+            	<button onclick="setLocation('<?php echo $url; ?>')" class="btn-koongo" type="button"
+            	   title="<?php echo $title; ?>" id="btn_activate_aukro">
+            	   <?php echo $title; ?>
+  			    </button>
+              <div class="destroy"></div>
+              <div class="info">
+              	<?php echo $this->__("Aukro connector brings"); ?>
+              	<a target="_blank" href="http://www.koongo.com/"><?php echo $this->__("Koongo - Feed Marketing Tool"); ?></a>
+              </div>
+            </div>
+            <div class="destroy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+<?php return; ?>
+<?php endif;?>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $this->getHeaderWidth() ?>"><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $this->getButtonsHtml() ?></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <?php echo $this->getGridHtml() ?>
+</div>
+
+<script>
+window.onload=function()
+{
+	//Remove header js toolbar
+	$$('.' + 'content-header-floating')[0].remove();
+}
+
+</script>
