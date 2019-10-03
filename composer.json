@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Nostress_Aukro",
+    "name": "OpenMageModuleFostering\/Nostress_Aukro",
     "type": "magento-module",
     "license": "osl",
     "homepage": "",
     "description": "Aukro Connector - Connector to Aukro Authority",
     "authors": [
-    {
-        "name": "Tomas Friedrich",
-        "email": "tomas.f@koongo.com"
-    }
-],
+        {
+            "name": "Tomas Friedrich",
+            "email": "tomas.f@koongo.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
